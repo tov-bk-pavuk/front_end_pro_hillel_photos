@@ -1,2 +1,1 @@
-# front_end_pro_hillel_photos
-This is Hillel study project in a course of FrontEnd Pro.
+Cервіс перегляду зображень. Користувачам надано можливість завантажувати свої фотографії або переглядати фотографії, завантажені раніше іншими користувачами.
