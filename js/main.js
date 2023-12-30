@@ -1,10 +1,14 @@
-import {photoDescriptions, commentVariationsList, authorsNamesList} from "./data_constants.js"
-// import {commentVariationsList} from "./data_constants.js"
-// import {authorsNamesList} from "./data_constants.js"
+import {photoDescriptions,
+  commentVariationsList,
+  authorsNamesList,
+  likesMaxValue,
+  commentsMaxValue,
+} from "./data_constants.js"
+import {displayAllThumbnails} from "./display_photos_thumbnails.js"
 
 const randomInt = function (min, max) {
   min = Math.ceil(min)
-  max = Math.floor(max)
+  max = 1 + Math.floor(max)
   return Math.floor(Math.random() * (max - min) + min)
 }
 
@@ -23,8 +27,8 @@ const creatBulkOfComments = function (amountOfComments) {
       "name": "",
     }
     comment.id = ID()
-    comment.avatar = `../img/avatar-${counter}.svg` // change if we need more avatars
-    comment.message = commentVariationsList[randomInt(0, commentVariationsList.length)]  // check ends of array
+    comment.avatar = `../img/avatar-${counter}.svg` // todo change if we need more avatars
+    comment.message = commentVariationsList[randomInt(0, commentVariationsList.length)]
     comment.name = authorsNamesList[randomInt(0, authorsNamesList.length)]
     comments.push(comment)
   }
@@ -33,26 +37,21 @@ const creatBulkOfComments = function (amountOfComments) {
 
 const createPhotoObjects = function (photoAmount) {
   const photoObjects = []
-  // for (let counter = 0; counter <= photoAmountMinusOne; counter++) {
   for (let counter = 0; counter < photoAmount; counter++) {
-    const photoObject = {}  // consider to add into an object its values
-    // const photoObject = {
-    //   // "id": "",
-    //   "id": "",
-    //   "url": "",
-    //   "description": "",
-    //   "likes": "",
-    //   "comments": "",
-    // }
-    photoObject.id = counter
-    photoObject.url = `../photos/${counter + 1}.jpg`
-    photoObject.description = photoDescriptions[counter]
-    photoObject.likes = randomInt(1, 33)  // remove magic numbers
-    photoObject.comments = [...creatBulkOfComments(randomInt(1, 5))] // check end values
+    const photoObject = {
+      "id": counter,
+      "url": `../photos/${counter + 1}.jpg`,
+      "description": photoDescriptions[counter],
+      "likes": randomInt(1, likesMaxValue),  // todo remove magic numbers,
+      "comments": [...creatBulkOfComments(randomInt(1, commentsMaxValue))],
+    }
     photoObjects.push(photoObject)
   }
   return photoObjects
 }
 
-const testObjects = createPhotoObjects(24)
+// client code starts here
+const testObjects = createPhotoObjects(25)
 console.log(testObjects)
+
+displayAllThumbnails(testObjects)
