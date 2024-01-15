@@ -36,12 +36,17 @@
 
           <!-- Початковий стан поля для завантаження зображення-->
           <fieldset class="img-upload__start">
+<!--            <input type="file" id="upload-file" accept="image/*" class="img-upload__input  visually-hidden"-->
+<!--                   name="filename" required>-->
             <input type="file" id="upload-file" accept="image/*" class="img-upload__input  visually-hidden"
-                   name="filename" required>
+                   name="filename">
             <label for="upload-file" class="img-upload__label  img-upload__control">Завантажити</label>
           </fieldset>
 
           <!-- Форма редагування зображення-->
+          <dialog id="picture_upload_form">
+          </dialog>
+
           <div class="img-upload__overlay hidden">
             <div class="img-upload__wrapper">
               <div class="img-upload__preview-container">
@@ -127,7 +132,8 @@
 
               <!-- Додавання хеш-тегів та коментаря до зображення -->
               <fieldset class="img-upload__text text">
-                <input class="text__hashtags" name="hashtags" placeholder="#ХешТег" required>
+<!--                <input class="text__hashtags" name="hashtags" placeholder="#ХешТег" required>-->
+                <input class="text__hashtags" name="hashtags" placeholder="#ХешТег">
                 <textarea class="text__description" name="description" placeholder="Ваш коментар..."
                           maxlength="160"></textarea>
               </fieldset>

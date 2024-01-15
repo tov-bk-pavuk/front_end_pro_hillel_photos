@@ -7,6 +7,7 @@ import {photoDescriptions,
 } from "./data_constants.js"
 import {displayAllThumbnails} from "./display_photos_thumbnails.js"
 import {addPhotoFullView} from "./photo_full_size_view.js"
+import {UserPictureUploadHandler} from "./form.js"
 
 const randomInt = function (min, max) {
   min = Math.ceil(min)
@@ -54,3 +55,4 @@ console.log(mockPhotoObjects)
 
 displayAllThumbnails(mockPhotoObjects)
 addPhotoFullView(mockPhotoObjects)
+UserPictureUploadHandler()
