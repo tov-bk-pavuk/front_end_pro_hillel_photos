@@ -1,7 +1,17 @@
+export const commentsMaxValueError = "Comment can't be longer than 140 symbols"
+
+export const hashTagRules =
+  "1. Every hash tag starts from '#'\n" +
+  "2. Divided by spaces \n" +
+  "3. Only ASCII letters and numbers\n" +
+  "4. No more than 5 hash tags\n" +
+  "5. No duplicates\n" +
+  "6. No longer than 20 symbols per hashtag\n" +
+  "7. Case insensitive\n"
 export const likesMaxValue = 100
+export const commentsMaxLength = 140
 export const commentsMaxValue = 6
 export const avatarsMaxValue = 6
-
 export const photoDescriptions = [
   "Моя шкільна вчителька з географії",
   "Серфінгістка на дошці здається такою зосередженою, ніби вона вирішила з'ясувати, чому дельфіни не відповідають на її SMS-повідомлення.",
